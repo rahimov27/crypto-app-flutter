@@ -1,38 +1,34 @@
+import 'package:crypto_project/common_widgets/news_widget.dart';
+import 'package:crypto_project/common_widgets/top_coins_widget.dart';
 import 'package:flutter/material.dart';
 
 class PriceGraph extends StatelessWidget {
-  const PriceGraph({Key? key}) : super(key: key);
+  final String btcPrice;
+  const PriceGraph({Key? key, required this.btcPrice}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.home_filled),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.yellow[100],
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.shopping_bag),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.money),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.currency_bitcoin),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.bar_chart),
-            ),
-          ],
+      appBar: AppBar(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: 364,
+                height: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(22),
+                    color: Color(0xff5C90F4)),
+              ),
+              TopCoinsWidget(btcPrice: btcPrice),
+              SizedBox(
+                height: 35,
+              ),
+              NewsWidget(),
+            ],
+          ),
         ),
       ),
     );

@@ -1,12 +1,24 @@
-import 'package:crypto_project/ui/screen1.dart';
+import 'package:crypto_project/ui/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(
-      textTheme: GoogleFonts.latoTextTheme(), // Use Google Fonts text theme
-    ),
-    home: Screen1(),
-  ));
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(color: Color(0xff16171D)),
+        textTheme: GoogleFonts.latoTextTheme(),
+        scaffoldBackgroundColor:
+            Color(0xff16171D), // Use Google Fonts text theme
+      ),
+      home: OnboardingScreen(),
+    );
+  }
 }
