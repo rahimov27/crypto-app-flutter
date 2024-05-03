@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CoinWidget extends StatelessWidget {
-  final String btcPrice;
-  const CoinWidget({Key? key, required this.btcPrice}) : super(key: key);
+  const CoinWidget(
+      {Key? key,
+      required this.coinCode,
+      required this.coinPrice,
+      required this.coinImage})
+      : super(key: key);
+  final String coinCode;
+  final String coinPrice;
+  final String coinImage;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +30,13 @@ class CoinWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.network(
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/2048px-Bitcoin.svg.png",
+                      coinImage,
                       height: 26,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 13),
+                      padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        "Bitcoin",
+                        coinCode,
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w900,
@@ -42,7 +49,7 @@ class CoinWidget extends StatelessWidget {
                   height: 8,
                 ),
                 Text(
-                  btcPrice,
+                  coinPrice,
                   style: TextStyle(color: Color(0xffA7AEBF), fontSize: 18),
                 ),
                 SizedBox(

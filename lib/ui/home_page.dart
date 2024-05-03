@@ -1,11 +1,11 @@
-import 'dart:convert';
 import 'dart:core';
 
 // import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:crypto_project/common_widgets/my_price_widget.dart';
+import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:crypto_project/ui/price_page.dart';
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:provider/provider.dart';
 
 class Screen1 extends StatefulWidget {
   const Screen1({super.key});
@@ -15,75 +15,7 @@ class Screen1 extends StatefulWidget {
 }
 
 class _Screen1State extends State<Screen1> {
-  // String coin_priceBTC = "";
-  // String coin_priceETH = "";
-  // String coin_priceSHIB = "";
-  // String coin_priceXRP = "";
-
   List<double> data = [];
-
-  @override
-  void initState() {
-    // getData();
-    super.initState();
-    webSocketFunction();
-  }
-
-  String ethName = '';
-  String ethPrice = '';
-
-  String btcName = '';
-  String btcPrice = '';
-
-  String shibName = '';
-  String shibPrice = '';
-
-  String xrpName = '';
-  String xrpPrice = '';
-
-  webSocketFunction() async {
-    final ethUsdtURL =
-        Uri.parse('wss://stream.binance.com:9443/ws/ethusdt@trade');
-    final btcUsdtURL =
-        Uri.parse('wss://stream.binance.com:9443/ws/btcusdt@trade');
-    final shibUsdtURL =
-        Uri.parse('wss://stream.binance.com:9443/ws/shibusdt@trade');
-    final xrpUsdtURL =
-        Uri.parse('wss://stream.binance.com:9443/ws/xrpusdt@trade');
-    final channelETH = WebSocketChannel.connect(ethUsdtURL);
-    final channelBTC = WebSocketChannel.connect(btcUsdtURL);
-    final channelSHIB = WebSocketChannel.connect(shibUsdtURL);
-    final channelXRP = WebSocketChannel.connect(xrpUsdtURL);
-
-    channelETH.stream.listen((message) {
-      Map valueMap = json.decode(message);
-      ethName = valueMap["s"];
-      ethPrice = valueMap["p"];
-      setState(() {});
-    });
-    channelBTC.stream.listen((message) {
-      Map valueMap = json.decode(message);
-      btcName = valueMap["s"];
-      btcPrice = valueMap["p"];
-
-      data.add(double.tryParse(btcPrice) ?? 0);
-
-      setState(() {});
-    });
-    channelSHIB.stream.listen((message) {
-      Map valueMap = json.decode(message);
-      shibName = valueMap["s"];
-      shibPrice = valueMap["p"];
-      setState(() {});
-    });
-    channelXRP.stream.listen((message) {
-      Map valueMap = json.decode(message);
-      xrpName = valueMap["s"];
-      xrpPrice = valueMap["p"];
-
-      setState(() {});
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,8 +37,6 @@ class _Screen1State extends State<Screen1> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              // Text(ethName),
-              // Text(ethPrice),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -137,25 +67,25 @@ class _Screen1State extends State<Screen1> {
               Column(
                 children: [
                   MyPriceWidget(
-                    coin_code: btcName,
-                    coin_price: btcPrice,
+                    coin_code: context.watch<CoinPricesProvider>().btcName,
+                    coin_price: context.watch<CoinPricesProvider>().btcPrice,
                     image:
                         "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/2048px-Bitcoin.svg.png",
                   ),
                   MyPriceWidget(
-                    coin_code: ethName,
-                    coin_price: ethPrice,
+                    coin_code: context.watch<CoinPricesProvider>().ethName,
+                    coin_price: context.watch<CoinPricesProvider>().ethPrice,
                     image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
                   ),
                   MyPriceWidget(
-                    coin_code: shibName,
-                    coin_price: shibPrice,
+                    coin_code: context.watch<CoinPricesProvider>().shibName,
+                    coin_price: context.watch<CoinPricesProvider>().shibPrice,
                     image:
                         "https://cryptologos.cc/logos/shiba-inu-shib-logo.png",
                   ),
                   MyPriceWidget(
-                    coin_code: xrpName,
-                    coin_price: xrpPrice,
+                    coin_code: context.watch<CoinPricesProvider>().xrpName,
+                    coin_price: context.watch<CoinPricesProvider>().xrpPrice,
                     image: "https://cryptologos.cc/logos/xrp-xrp-logo.png",
                   ),
                   Column(
@@ -197,33 +127,13 @@ class _Screen1State extends State<Screen1> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => PriceGraph(btcPrice: btcPrice)),
+            MaterialPageRoute(builder: (context) => PriceGraph()),
           );
         },
         child: const Icon(Icons.search),
       ),
     );
   }
-
-  // Future<void> getData() async {
-  //   final dio = Dio();
-  //   final responseBTC = await dio.get(
-  //       "https://min-api.cryptocompare.com/data/generateAvg?fsym=BTC&tsym=USD&e=coinbase");
-  //   final responseETH = await dio.get(
-  //       "https://min-api.cryptocompare.com/data/generateAvg?fsym=ETH&tsym=USD&e=coinbase");
-  //   final responseSHIB = await dio.get(
-  //       "https://min-api.cryptocompare.com/data/generateAvg?fsym=SHIB&tsym=USD&e=coinbase");
-  //   final responseXRP = await dio.get(
-  //       "https://min-api.cryptocompare.com/data/generateAvg?fsym=XRP&tsym=USD&e=coinbase");
-
-  //   // print(response.data);
-  //   coin_priceBTC = responseBTC.data["RAW"]["PRICE"];
-  //   coin_priceETH = responseETH.data["RAW"]["PRICE"];
-  //   coin_priceSHIB = responseSHIB.data["RAW"]["PRICE"];
-  //   coin_priceXRP = responseXRP.data["RAW"]["PRICE"];
-  //   // print(coin_priceBTC.toString());
-  // }
 }
 
 class CardWidget extends StatelessWidget {

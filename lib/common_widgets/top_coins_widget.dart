@@ -1,14 +1,12 @@
-
 import 'package:crypto_project/common_widgets/coin_widget.dart';
+import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TopCoinsWidget extends StatelessWidget {
   const TopCoinsWidget({
     super.key,
-    required this.btcPrice,
   });
-
-  final String btcPrice;
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +44,16 @@ class TopCoinsWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CoinWidget(
-                btcPrice: btcPrice,
+                coinCode: context.watch<CoinPricesProvider>().btcName,
+                coinPrice: context.watch<CoinPricesProvider>().btcPrice,
+                coinImage:
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/2048px-Bitcoin.svg.png",
               ),
               Spacer(),
               CoinWidget(
-                btcPrice: btcPrice,
+                coinCode: context.watch<CoinPricesProvider>().ethName,
+                coinPrice: context.watch<CoinPricesProvider>().ethPrice,
+                coinImage: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
               ),
             ],
           ),

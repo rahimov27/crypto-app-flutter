@@ -1,10 +1,13 @@
 import 'package:crypto_project/common_widgets/news_widget.dart';
 import 'package:crypto_project/common_widgets/top_coins_widget.dart';
+import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PriceGraph extends StatelessWidget {
-  final String btcPrice;
-  const PriceGraph({Key? key, required this.btcPrice}) : super(key: key);
+  const PriceGraph({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class PriceGraph extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20), // Add some space
-              TopCoinsWidget(btcPrice: btcPrice),
+              TopCoinsWidget(),
               SizedBox(height: 20), // Add some space
               NewsWidget(),
             ],
