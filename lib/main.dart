@@ -1,5 +1,5 @@
+import 'package:crypto_project/common_widgets/pages_widget.dart';
 import 'package:crypto_project/providers/coin_prices_provider.dart';
-import 'package:crypto_project/ui/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor:
               Color(0xff16171D), // Use Google Fonts text theme
         ),
-        home: OnboardingScreen(),
+        // home: OnboardingScreen(),
+        home: PagesScreen(),
       ),
     );
   }

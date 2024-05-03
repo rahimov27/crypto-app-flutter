@@ -16,6 +16,9 @@ class CoinPricesProvider extends ChangeNotifier {
   String xrpName = '';
   String xrpPrice = '';
 
+  String adaName = '';
+  String adaPrice = '';
+
   CoinPricesProvider() {
     webSocketFunction();
   }
@@ -29,10 +32,13 @@ class CoinPricesProvider extends ChangeNotifier {
         Uri.parse('wss://stream.binance.com:9443/ws/shibusdt@trade');
     final xrpUsdtURL =
         Uri.parse('wss://stream.binance.com:9443/ws/xrpusdt@trade');
+    final adaUsdtURL =
+        Uri.parse('wss://stream.binance.com:9443/ws/adausdt@trade');
     final channelETH = WebSocketChannel.connect(ethUsdtURL);
     final channelBTC = WebSocketChannel.connect(btcUsdtURL);
     final channelSHIB = WebSocketChannel.connect(shibUsdtURL);
     final channelXRP = WebSocketChannel.connect(xrpUsdtURL);
+    final channelADA = WebSocketChannel.connect(adaUsdtURL);
 
     channelETH.stream.listen((message) {
       Map valueMap = json.decode(message);
@@ -58,6 +64,12 @@ class CoinPricesProvider extends ChangeNotifier {
       Map valueMap = json.decode(message);
       xrpName = valueMap["s"];
       xrpPrice = valueMap["p"];
+      notifyListeners();
+    });
+    channelADA.stream.listen((message) {
+      Map valueMap = json.decode(message);
+      adaName = valueMap["s"];
+      adaPrice = valueMap["p"];
       notifyListeners();
     });
   }

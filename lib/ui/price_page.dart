@@ -1,8 +1,6 @@
 import 'package:crypto_project/common_widgets/news_widget.dart';
 import 'package:crypto_project/common_widgets/top_coins_widget.dart';
-import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class PriceGraph extends StatelessWidget {
   const PriceGraph({
@@ -20,16 +18,15 @@ class PriceGraph extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height *
-                    0.2, // Adjust the height according to the screen size
+                height: MediaQuery.of(context).size.height * 0.2,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(22),
                   color: Color(0xff5C90F4),
                 ),
               ),
-              SizedBox(height: 20), // Add some space
+              SizedBox(height: 20),
               TopCoinsWidget(),
-              SizedBox(height: 20), // Add some space
+              SizedBox(height: 20),
               NewsWidget(),
             ],
           ),

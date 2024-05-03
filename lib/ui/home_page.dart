@@ -4,6 +4,7 @@ import 'dart:core';
 import 'package:crypto_project/common_widgets/my_price_widget.dart';
 import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:crypto_project/ui/price_page.dart';
+import 'package:crypto_project/ui/top_coins_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +58,12 @@ class _Screen1State extends State<Screen1> {
                   ),
                   const Spacer(),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => TopCoinsPage()));
+                      },
                       child: const Text(
                         "See all",
                         style: TextStyle(color: Colors.white),
