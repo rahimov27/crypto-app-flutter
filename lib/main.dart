@@ -1,4 +1,4 @@
-import 'package:crypto_project/ui/on_boarding_screen.dart';
+import 'package:crypto_project/ui/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

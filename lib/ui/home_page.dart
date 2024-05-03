@@ -3,7 +3,7 @@ import 'dart:core';
 
 // import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:crypto_project/common_widgets/my_price_widget.dart';
-import 'package:crypto_project/ui/price_graph.dart';
+import 'package:crypto_project/ui/price_page.dart';
 import 'package:flutter/material.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 

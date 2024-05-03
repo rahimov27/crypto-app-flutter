@@ -1,5 +1,5 @@
 import 'package:crypto_project/resources/resources.dart';
-import 'package:crypto_project/ui/screen1.dart';
+import 'package:crypto_project/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
