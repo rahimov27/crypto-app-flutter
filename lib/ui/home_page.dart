@@ -62,7 +62,7 @@ class _Screen1State extends State<Screen1> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TopCoinsPage()));
+                                builder: (context) => TopCoinsPage(),),);
                       },
                       child: const Text(
                         "See all",
