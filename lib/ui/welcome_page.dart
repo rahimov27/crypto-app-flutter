@@ -1,5 +1,5 @@
 import 'package:crypto_project/resources/resources.dart';
-import 'package:crypto_project/ui/home_page.dart';
+import 'package:crypto_project/ui/FirstPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -16,7 +16,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   void _onIntroEnd(context) {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const Screen1()),
+      MaterialPageRoute(builder: (_) => const FirstPage()),
     );
   }
 

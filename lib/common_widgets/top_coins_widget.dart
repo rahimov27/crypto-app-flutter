@@ -1,5 +1,6 @@
 import 'package:crypto_project/common_widgets/coin_widget.dart';
 import 'package:crypto_project/providers/coin_prices_provider.dart';
+import 'package:crypto_project/ui/ThirdPage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,7 +25,10 @@ class TopCoinsWidget extends StatelessWidget {
             ),
             Spacer(),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ThirdPage()));
+              },
               child: Text(
                 "See all",
                 style: TextStyle(

@@ -1,4 +1,5 @@
 import 'package:crypto_project/resources/resources.dart';
+import 'package:crypto_project/ui/NewsPage.dart';
 import 'package:flutter/material.dart';
 
 class NewsWidget extends StatelessWidget {
@@ -22,7 +23,10 @@ class NewsWidget extends StatelessWidget {
             ),
             Spacer(),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => NewsPage()));
+              },
               child: Text(
                 "See all",
                 style: TextStyle(

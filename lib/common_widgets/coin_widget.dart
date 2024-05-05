@@ -1,9 +1,7 @@
 import 'dart:convert';
 
-import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:chart_sparkline/chart_sparkline.dart';
-import 'package:provider/provider.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class CoinWidget extends StatefulWidget {
@@ -50,7 +48,7 @@ class _CoinWidgetState extends State<CoinWidget> {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Color(0xff282B35)),
-          width: 165,
+          width: 180,
           height: 240,
           child: Padding(
             padding: const EdgeInsets.all(22.0),

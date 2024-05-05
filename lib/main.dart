@@ -1,5 +1,6 @@
 import 'package:crypto_project/common_widgets/pages_widget.dart';
 import 'package:crypto_project/providers/coin_prices_provider.dart';
+import 'package:crypto_project/providers/news_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,8 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CoinPricesProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => CoinPricesProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => NewsProvider(),
+        )
+      ],
       child: MaterialApp(
         theme: ThemeData(
           appBarTheme: AppBarTheme(color: Color(0xff16171D)),

@@ -3,39 +3,28 @@ import 'dart:core';
 // import 'package:chart_sparkline/chart_sparkline.dart';
 import 'package:crypto_project/common_widgets/my_price_widget.dart';
 import 'package:crypto_project/providers/coin_prices_provider.dart';
-import 'package:crypto_project/ui/price_page.dart';
-import 'package:crypto_project/ui/top_coins_page.dart';
+import 'package:crypto_project/ui/SecondPage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Screen1 extends StatefulWidget {
-  const Screen1({super.key});
+class FirstPage extends StatefulWidget {
+  const FirstPage({super.key});
 
   @override
-  State<Screen1> createState() => _Screen1State();
+  State<FirstPage> createState() => _Screen1State();
 }
 
-class _Screen1State extends State<Screen1> {
+class _Screen1State extends State<FirstPage> {
   List<double> data = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Portfolio",
-          style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.w500, color: Colors.white),
-        ),
-        centerTitle: false,
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.settings))
-        ],
-      ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
               SingleChildScrollView(
@@ -60,9 +49,11 @@ class _Screen1State extends State<Screen1> {
                   TextButton(
                       onPressed: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => TopCoinsPage(),),);
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SecondPage(),
+                          ),
+                        );
                       },
                       child: const Text(
                         "See all",
@@ -128,15 +119,6 @@ class _Screen1State extends State<Screen1> {
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => PriceGraph()),
-          );
-        },
-        child: const Icon(Icons.search),
       ),
     );
   }
