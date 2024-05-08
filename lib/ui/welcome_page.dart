@@ -26,10 +26,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       key: introKey,
       globalBackgroundColor: Color(0xff16171D),
       skipStyle: ButtonStyle(
-          textStyle: MaterialStateProperty.all(TextStyle(
+          textStyle: WidgetStateProperty.all(TextStyle(
             fontSize: 17,
           )),
-          foregroundColor: MaterialStateProperty.all(Color(0xffF5C249))),
+          foregroundColor: WidgetStateProperty.all(Color(0xffF5C249))),
       allowImplicitScrolling: true,
       autoScrollDuration: 300000,
       infiniteAutoScroll: true,
@@ -117,7 +117,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               TextStyle(fontWeight: FontWeight.w600, color: Color(0xffF5C249))),
       onDone: () => _onIntroEnd(context),
       nextStyle: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(Color(0xffF5C249))),
+          foregroundColor: WidgetStateProperty.all(Color(0xffF5C249))),
       dotsDecorator: const DotsDecorator(
         size: Size.square(9),
         activeColor: Color(0xffF5C249),
