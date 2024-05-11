@@ -1,3 +1,4 @@
+import 'package:crypto_project/second_design/widgets/CoinLikeWidget.dart';
 import 'package:flutter/material.dart';
 
 class ExploreScreen extends StatefulWidget {
@@ -9,7 +10,6 @@ class ExploreScreen extends StatefulWidget {
 
 class _ExploreScreenState extends State<ExploreScreen> {
   int _selectedIndex = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +138,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
           ),
         ),
       ),
-     
     );
   }
 
@@ -163,77 +162,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
           style: TextStyle(
             color: _selectedIndex == index ? Colors.blue : Colors.white,
             fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CoinLikeWidget extends StatelessWidget {
-  const CoinLikeWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 12),
-      child: Container(
-        width: 162,
-        height: 154,
-        decoration: BoxDecoration(
-          color: Color(0xff18191D),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 21),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CircleAvatar(
-                radius: 17,
-                child: Image.asset(
-                    "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/coins/el.png"),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 5),
-                    child: Text(
-                      "BTC",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Text(
-                    "\$23,772...",
-                    style: TextStyle(
-                        color: Colors.white.withOpacity(0.50),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Image.asset(
-                      "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/ph_arrow-up-right-duotone.png"),
-                  Text(
-                    "6.75%",
-                    style: TextStyle(
-                        color: Color(0xff55AA79),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ],
           ),
         ),
       ),

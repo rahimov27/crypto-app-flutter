@@ -1,3 +1,4 @@
+import 'package:crypto_project/BrowserScreen.dart';
 import 'package:crypto_project/second_design/ExploreScreen.dart';
 import 'package:crypto_project/second_design/HomeScreen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _PagesNavScreenState extends State<PagesNavScreen> {
   List<Widget> widgets = [
     HomeScreen(),
     ExploreScreen(),
-    ExploreScreen(),
+    BrowserScreen(),
     ExploreScreen(),
     ExploreScreen(),
   ];

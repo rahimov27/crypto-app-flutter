@@ -45,7 +45,7 @@ class Splash3 extends StatelessWidget {
                   'I already have a wallet',
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
-              )
+              ),
             ],
           ),
         ),
