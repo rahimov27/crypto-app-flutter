@@ -1,5 +1,9 @@
-import 'package:crypto_project/second_design/widgets/CoinLikeWidget.dart';
+import 'package:crypto_project/AppConsts/CoinConsts.dart';
+import 'package:crypto_project/providers/coin_prices_provider.dart';
+import 'package:crypto_project/second_design/MoreInfoCoinPage.dart';
+import 'package:crypto_project/second_design/comm_widgets/CoinLikeWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});
@@ -90,9 +94,52 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    CoinLikeWidget(),
-                    CoinLikeWidget(),
-                    CoinLikeWidget(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreInfoCoinPage(
+                                price: context
+                                    .watch<CoinPricesProvider>()
+                                    .btcPrice,
+                                coinInfo: CoinText.BTC,
+                                coinCode: context
+                                    .watch<CoinPricesProvider>()
+                                    .btcName),
+                          ),
+                        );
+                      },
+                      child: CoinLikeWidget(
+                        iconURL:
+                            "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+                        price: context.watch<CoinPricesProvider>().btcPrice,
+                        coinCode: context.watch<CoinPricesProvider>().btcName,
+                      ),
+                    ),
+                    CoinLikeWidget(
+                      iconURL:
+                          "https://download.logo.wine/logo/Ethereum/Ethereum-Logo.wine.png",
+                      price: context.watch<CoinPricesProvider>().ethPrice,
+                      coinCode: context.watch<CoinPricesProvider>().ethName,
+                    ),
+                    CoinLikeWidget(
+                      iconURL:
+                          "https://cryptologos.cc/logos/shiba-inu-shib-logo.png",
+                      price: context.watch<CoinPricesProvider>().shibPrice,
+                      coinCode: context.watch<CoinPricesProvider>().shibName,
+                    ),
+                    CoinLikeWidget(
+                      iconURL:
+                          "https://cryptologos.cc/logos/cardano-ada-logo.png",
+                      price: context.watch<CoinPricesProvider>().adaPrice,
+                      coinCode: context.watch<CoinPricesProvider>().adaName,
+                    ),
+                    CoinLikeWidget(
+                      iconURL: "https://cryptologos.cc/logos/xrp-xrp-logo.png",
+                      price: context.watch<CoinPricesProvider>().xrpPrice,
+                      coinCode: context.watch<CoinPricesProvider>().xrpName,
+                    ),
                   ],
                 ),
               ),
@@ -109,9 +156,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    CoinLikeWidget(),
-                    CoinLikeWidget(),
-                    CoinLikeWidget(),
+                    CoinLikeWidget(
+                      iconURL:
+                          "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+                      price: context.watch<CoinPricesProvider>().btcPrice,
+                      coinCode: context.watch<CoinPricesProvider>().btcName,
+                    ),
                   ],
                 ),
               ),
@@ -128,11 +178,17 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    CoinLikeWidget(),
-                    CoinLikeWidget(),
-                    CoinLikeWidget(),
+                    CoinLikeWidget(
+                      iconURL:
+                          "https://cryptologos.cc/logos/bitcoin-btc-logo.png",
+                      price: context.watch<CoinPricesProvider>().btcPrice,
+                      coinCode: context.watch<CoinPricesProvider>().btcName,
+                    ),
                   ],
                 ),
+              ),
+              SizedBox(
+                height: 70,
               ),
             ],
           ),

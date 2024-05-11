@@ -43,13 +43,13 @@ class CoinPricesProvider extends ChangeNotifier {
     channelETH.stream.listen((message) {
       Map valueMap = json.decode(message);
       ethName = valueMap["s"];
-      ethPrice = valueMap["p"];
+      ethPrice = valueMap["p"].toString().substring(0, 7);
       notifyListeners();
     });
     channelBTC.stream.listen((message) {
       Map valueMap = json.decode(message);
       btcName = valueMap["s"];
-      btcPrice = valueMap["p"];
+      btcPrice = valueMap["p"].toString().substring(0, 8);
       notifyListeners();
 
       // data.add(double.tryParse(btcPrice) ?? 0);
@@ -57,19 +57,19 @@ class CoinPricesProvider extends ChangeNotifier {
     channelSHIB.stream.listen((message) {
       Map valueMap = json.decode(message);
       shibName = valueMap["s"];
-      shibPrice = valueMap["p"];
+      shibPrice = valueMap["p"].toString().substring(0, 7);
       notifyListeners();
     });
     channelXRP.stream.listen((message) {
       Map valueMap = json.decode(message);
       xrpName = valueMap["s"];
-      xrpPrice = valueMap["p"];
+      xrpPrice = valueMap["p"].toString().substring(0, 7);
       notifyListeners();
     });
     channelADA.stream.listen((message) {
       Map valueMap = json.decode(message);
       adaName = valueMap["s"];
-      adaPrice = valueMap["p"];
+      adaPrice = valueMap["p"].toString().substring(0, 7);
       notifyListeners();
     });
   }
