@@ -1,4 +1,3 @@
-import 'package:crypto_project/second_design/MoreInfoCoinPage.dart';
 import 'package:flutter/material.dart';
 
 class CoinLikeWidget extends StatelessWidget {

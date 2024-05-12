@@ -40,7 +40,6 @@ class _MoreInfoCoinPageState extends State<MoreInfoCoinPage> {
       btcPrice = valueMap["p"];
 
       data.add(double.tryParse(btcPrice) ?? 0);
-      setState(() {});
     });
   }
 
@@ -115,8 +114,8 @@ class _MoreInfoCoinPageState extends State<MoreInfoCoinPage> {
                   fillMode: FillMode.below,
                   fillColor: const Color(0xff687DE3).withOpacity(0.40),
                   data: data,
-                  useCubicSmoothing: true,
-                  cubicSmoothingFactor: 1,
+                  useCubicSmoothing: false,
+                  cubicSmoothingFactor: 0.1,
                   fillGradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
@@ -132,6 +131,7 @@ class _MoreInfoCoinPageState extends State<MoreInfoCoinPage> {
               ),
               const SizedBox(height: 24),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleButtonWidget(
                     func: () {},
@@ -139,32 +139,24 @@ class _MoreInfoCoinPageState extends State<MoreInfoCoinPage> {
                         "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/material-symbols_add-rounded.png",
                     text: "Buy",
                   ),
-                  Spacer(),
-                  Spacer(),
                   CircleButtonWidget(
                     func: () {},
                     image:
                         "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/material-symbols_swap-calls-rounded.png",
                     text: "Swap",
                   ),
-                  Spacer(),
-                  Spacer(),
                   CircleButtonWidget(
                     func: () {},
                     text: "Bridge",
                     image:
                         "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/material-symbols_swap-vert-rounded.png",
                   ),
-                  Spacer(),
-                  Spacer(),
                   CircleButtonWidget(
                     func: () {},
                     text: "Send",
                     image:
                         "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/mdi_arrow-up.png",
                   ),
-                  Spacer(),
-                  Spacer(),
                   CircleButtonWidget(
                     func: () {
                       showModalBottomSheet(

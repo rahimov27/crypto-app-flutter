@@ -76,7 +76,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                       ),
                       Spacer(),
                       Image.asset(
-                          "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/IMG_5630.png"),
+                          "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/Splash/IMG_5630.png"),
                     ],
                   ),
                 ),
@@ -214,7 +214,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ),
               SizedBox(height: 23),
               Text(
-                "Coins you might like",
+                "Market Cap",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 19,
@@ -236,7 +236,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ),
               SizedBox(height: 23),
               Text(
-                "Coins you might like",
+                "Top Movers",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 19,

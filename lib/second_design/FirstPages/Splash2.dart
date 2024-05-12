@@ -48,7 +48,10 @@ class Splash2 extends StatelessWidget {
               ),
               SizedBox(height: 31),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Splash3()));
+                },
                 child: Text(
                   'I already have a wallet',
                   style: TextStyle(fontSize: 20, color: Colors.white),

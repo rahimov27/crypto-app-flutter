@@ -1,3 +1,4 @@
+import 'package:crypto_project/second_design/SecurityPages/SecurityPage1.dart';
 import 'package:flutter/material.dart';
 
 class Splash3 extends StatelessWidget {
@@ -40,7 +41,10 @@ class Splash3 extends StatelessWidget {
               ),
               SizedBox(height: 31),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SecurityPage1()));
+                },
                 child: Text(
                   'I already have a wallet',
                   style: TextStyle(fontSize: 20, color: Colors.white),

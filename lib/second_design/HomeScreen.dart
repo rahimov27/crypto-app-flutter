@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:crypto_project/second_design/DeFiScreen.dart';
 import 'package:crypto_project/second_design/NFTsScreen.dart';
-import 'package:crypto_project/second_design/comm_widgets/ButtonWidget.dart';
 import 'package:crypto_project/second_design/comm_widgets/CircleButtonWidget.dart';
 import 'package:crypto_project/second_design/comm_widgets/ReceiveAssetsWidget.dart';
 
@@ -78,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 25,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CircleButtonWidget(
                   func: () {},
@@ -85,32 +85,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/material-symbols_add-rounded.png",
                   text: "Buy",
                 ),
-                Spacer(),
-                Spacer(),
                 CircleButtonWidget(
                   func: () {},
                   image:
                       "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/material-symbols_swap-calls-rounded.png",
                   text: "Swap",
                 ),
-                Spacer(),
-                Spacer(),
                 CircleButtonWidget(
                   func: () {},
                   text: "Bridge",
                   image:
                       "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/material-symbols_swap-vert-rounded.png",
                 ),
-                Spacer(),
-                Spacer(),
                 CircleButtonWidget(
                   func: () {},
                   text: "Send",
                   image:
                       "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/icons/mdi_arrow-up.png",
                 ),
-                Spacer(),
-                Spacer(),
                 CircleButtonWidget(
                   func: () {
                     showModalBottomSheet(

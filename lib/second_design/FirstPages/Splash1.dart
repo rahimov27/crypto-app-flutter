@@ -14,6 +14,9 @@ class Splash1 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 65,
+              ),
               Image.asset(
                   "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/Splash/Rectangle1.png"),
               SizedBox(

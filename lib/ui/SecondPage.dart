@@ -1,4 +1,3 @@
-import 'package:crypto_project/common_widgets/news_widget.dart';
 import 'package:crypto_project/common_widgets/top_coins_widget.dart';
 import 'package:flutter/material.dart';
 

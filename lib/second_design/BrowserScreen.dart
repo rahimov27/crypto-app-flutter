@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BrowserScreen extends StatefulWidget {
   const BrowserScreen({Key? key}) : super(key: key);
@@ -91,6 +92,10 @@ class _BrowserScreenState extends State<BrowserScreen> {
               children: [
                 CircleAvatar(
                   radius: 20,
+                  backgroundColor: Colors.white,
+                  child: SvgPicture.asset(
+                    "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/coins-images/bitcoin-btc-logo.svg",
+                  ),
                 ),
                 Spacer(),
                 Container(
@@ -107,6 +112,10 @@ class _BrowserScreenState extends State<BrowserScreen> {
                       padding: const EdgeInsets.only(left: 15),
                       child: CircleAvatar(
                         radius: 10,
+                        backgroundColor: Colors.white,
+                        child: SvgPicture.asset(
+                          "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/coins-images/bitcoin-btc-logo.svg",
+                        ),
                       ),
                     ),
                     icon: Padding(
@@ -141,6 +150,10 @@ class _BrowserScreenState extends State<BrowserScreen> {
                       children: [
                         CircleAvatar(
                           radius: 10,
+                          backgroundColor: Colors.white,
+                          child: SvgPicture.asset(
+                            "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/coins-images/bitcoin-btc-logo.svg",
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 6),
@@ -177,7 +190,7 @@ class _BrowserScreenState extends State<BrowserScreen> {
             ),
             Container(
               width: double.infinity,
-              height: 448,
+              height: 475,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: Color(0xff141722),
@@ -205,7 +218,7 @@ class _BrowserScreenState extends State<BrowserScreen> {
                           child: Text(
                             "Limit",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xff7185A9),
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -215,7 +228,7 @@ class _BrowserScreenState extends State<BrowserScreen> {
                           child: Text(
                             "P2P",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xff7185A9),
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
@@ -227,23 +240,20 @@ class _BrowserScreenState extends State<BrowserScreen> {
                               onPressed: () {},
                               icon: Icon(
                                 Icons.refresh,
-                                size: 24,
                                 color: Colors.white,
                               ),
                             ),
                             IconButton(
                               onPressed: () {},
                               icon: Icon(
-                                Icons.refresh,
-                                size: 24,
+                                Icons.add,
                                 color: Colors.white,
                               ),
                             ),
                             IconButton(
                               onPressed: () {},
                               icon: Icon(
-                                Icons.refresh,
-                                size: 24,
+                                Icons.settings,
                                 color: Colors.white,
                               ),
                             ),
@@ -255,37 +265,40 @@ class _BrowserScreenState extends State<BrowserScreen> {
                       height: 26,
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Stack(
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              height: 111,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.black,
-                              ),
-                            ),
-                            Positioned(
-                              bottom: -20,
-                              left: 0,
-                              right: 0,
-                              child: CircleAvatar(
-                                child: Icon(Icons.arrow_downward),
-                              ),
-                            ),
-                          ],
+                        YouSellWidget(
+                          borderColor: Colors.transparent,
                         ),
                         SizedBox(
                           height: 9,
                         ),
-                        Container(
+                        YouSellWidget(
+                          borderColor: Colors.red,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "1 ETH = 0.699234 BTC (\$24,653.80)",
+                          style:
+                              TextStyle(color: Color(0xff707A83), fontSize: 12),
+                        ),
+                        SizedBox(height: 16),
+                        SizedBox(
                           width: double.infinity,
-                          height: 111,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: Colors.pink),
-                            color: Colors.transparent,
+                          height: 68,
+                          child: ElevatedButton(
+                            onPressed: null,
+                            style: ElevatedButton.styleFrom(
+                              disabledBackgroundColor: Color(0xff343F52),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(13),
+                              ),
+                            ),
+                            child: Text("Insufficient ETH balance",
+                                style: TextStyle(
+                                    color: Color(0xff707A83), fontSize: 20)),
                           ),
                         ),
                       ],
@@ -293,6 +306,89 @@ class _BrowserScreenState extends State<BrowserScreen> {
                   ],
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class YouSellWidget extends StatelessWidget {
+  const YouSellWidget({
+    super.key,
+    required this.borderColor,
+  });
+
+  final Color borderColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 111,
+      decoration: BoxDecoration(
+        border: Border.all(color: borderColor),
+        borderRadius: BorderRadius.circular(15),
+        color: Colors.black,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Text(
+                  "You sell",
+                  style: TextStyle(color: Color(0xff707A83), fontSize: 12),
+                ),
+                Spacer(),
+                Text(
+                  "Balance: 0 MAX",
+                  style: TextStyle(color: Color(0xff707A83), fontSize: 12),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 6.0),
+                  child: CircleAvatar(
+                    radius: 15,
+                    backgroundColor: Colors.white,
+                    child: SvgPicture.asset(
+                      "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/coins-images/bitcoin-btc-logo.svg",
+                    ),
+                  ),
+                ),
+                Text(
+                  "ETH",
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+                Icon(
+                  Icons.arrow_downward,
+                  color: Colors.white,
+                ),
+                Spacer(),
+                Text(
+                  "1",
+                  style: TextStyle(color: Colors.white, fontSize: 24),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  "Ethereum",
+                  style: TextStyle(color: Color(0xff707A83), fontSize: 12),
+                ),
+                Spacer(),
+                Text(
+                  "~ \$1 688.23",
+                  style: TextStyle(color: Color(0xff707A83), fontSize: 12),
+                ),
+              ],
             ),
           ],
         ),
