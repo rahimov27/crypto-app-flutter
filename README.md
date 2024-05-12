@@ -1,16 +1,5 @@
 # crypto_project
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Home page 
+![Simulator Screenshot - iphone 15 pro max - 2024-05-12 at 21 35 51](https://github.com/rahimov27/crypto-app-flutter/assets/89564054/e44d3cdd-8a91-43c3-adba-f2155c4627e4)
