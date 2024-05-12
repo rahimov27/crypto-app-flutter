@@ -1,7 +1,9 @@
-import 'package:crypto_project/second_design/comm_widgets/ReceiveAssetsWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:crypto_project/second_design/DeFiScreen.dart';
+import 'package:crypto_project/second_design/NFTsScreen.dart';
 import 'package:crypto_project/second_design/comm_widgets/ButtonWidget.dart';
 import 'package:crypto_project/second_design/comm_widgets/CircleButtonWidget.dart';
+import 'package:crypto_project/second_design/comm_widgets/ReceiveAssetsWidget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -185,74 +187,129 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Row(
               children: [
-                buildNavButton(0, "Crypto"),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 0;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: _selectedIndex == 0
+                              ? Colors.blue
+                              : Colors.transparent,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      "Crypto",
+                      style: TextStyle(
+                        color: _selectedIndex == 0 ? Colors.blue : Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(width: 20),
-                buildNavButton(1, "NFTs"),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 1;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: _selectedIndex == 1
+                              ? Colors.blue
+                              : Colors.transparent,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      "NFTs",
+                      style: TextStyle(
+                        color: _selectedIndex == 1 ? Colors.blue : Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(width: 20),
-                buildNavButton(2, "DeFi"),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = 2;
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: _selectedIndex == 2
+                              ? Colors.blue
+                              : Colors.transparent,
+                          width: 2,
+                        ),
+                      ),
+                    ),
+                    child: Text(
+                      "DeFi",
+                      style: TextStyle(
+                        color: _selectedIndex == 2 ? Colors.blue : Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
             SizedBox(
               height: 32,
             ),
-            Image.asset(
-                "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/home-1.png"),
-            Column(
-              children: [
-                Text(
-                  textAlign: TextAlign.center,
-                  "Add crypto to get started",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 11,
-                ),
-                Text(
-                  textAlign: TextAlign.center,
-                  "You can add funds with your Coinbase account or another wallet.",
-                  style: TextStyle(
-                      color: Colors.white.withOpacity(0.50),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
-                ),
-              ],
-            ),
-            Spacer(),
-            LongButton(),
-            SizedBox(
-              height: 10,
+            Expanded(
+              child: SingleChildScrollView(
+                child: _selectedIndex == 0
+                    ? Column(
+                        children: [
+                          Image.asset(
+                              "/Users/r27/StudioProjects/crypto-app/crypto_project/assets/images/home-1.png"),
+                          Column(
+                            children: [
+                              Text(
+                                textAlign: TextAlign.center,
+                                "Add crypto to get started",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 11,
+                              ),
+                              Text(
+                                textAlign: TextAlign.center,
+                                "You can add funds with your Coinbase account or another wallet.",
+                                style: TextStyle(
+                                    color: Colors.white.withOpacity(0.50),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    : _selectedIndex == 1
+                        ? NFTsScreen()
+                        : DeFiScreen(),
+              ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildNavButton(int index, String title) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: _selectedIndex == index ? Colors.blue : Colors.transparent,
-              width: 2,
-            ),
-          ),
-        ),
-        child: Text(
-          title,
-          style: TextStyle(
-            color: _selectedIndex == index ? Colors.blue : Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
         ),
       ),
     );

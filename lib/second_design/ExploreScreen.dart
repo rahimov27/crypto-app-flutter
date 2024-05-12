@@ -117,28 +117,97 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         coinCode: context.watch<CoinPricesProvider>().btcName,
                       ),
                     ),
-                    CoinLikeWidget(
-                      iconURL:
-                          "https://download.logo.wine/logo/Ethereum/Ethereum-Logo.wine.png",
-                      price: context.watch<CoinPricesProvider>().ethPrice,
-                      coinCode: context.watch<CoinPricesProvider>().ethName,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreInfoCoinPage(
+                                price: context
+                                    .watch<CoinPricesProvider>()
+                                    .ethPrice,
+                                coinInfo: CoinText.ETH,
+                                coinCode: context
+                                    .watch<CoinPricesProvider>()
+                                    .ethName),
+                          ),
+                        );
+                      },
+                      child: CoinLikeWidget(
+                        iconURL:
+                            "https://download.logo.wine/logo/Ethereum/Ethereum-Logo.wine.png",
+                        price: context.watch<CoinPricesProvider>().ethPrice,
+                        coinCode: context.watch<CoinPricesProvider>().ethName,
+                      ),
                     ),
-                    CoinLikeWidget(
-                      iconURL:
-                          "https://cryptologos.cc/logos/shiba-inu-shib-logo.png",
-                      price: context.watch<CoinPricesProvider>().shibPrice,
-                      coinCode: context.watch<CoinPricesProvider>().shibName,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreInfoCoinPage(
+                                price: context
+                                    .watch<CoinPricesProvider>()
+                                    .shibPrice,
+                                coinInfo: CoinText.SHIB,
+                                coinCode: context
+                                    .watch<CoinPricesProvider>()
+                                    .shibName),
+                          ),
+                        );
+                      },
+                      child: CoinLikeWidget(
+                        iconURL:
+                            "https://cryptologos.cc/logos/shiba-inu-shib-logo.png",
+                        price: context.watch<CoinPricesProvider>().shibPrice,
+                        coinCode: context.watch<CoinPricesProvider>().shibName,
+                      ),
                     ),
-                    CoinLikeWidget(
-                      iconURL:
-                          "https://cryptologos.cc/logos/cardano-ada-logo.png",
-                      price: context.watch<CoinPricesProvider>().adaPrice,
-                      coinCode: context.watch<CoinPricesProvider>().adaName,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreInfoCoinPage(
+                                price: context
+                                    .watch<CoinPricesProvider>()
+                                    .adaPrice,
+                                coinInfo: CoinText.ADA,
+                                coinCode: context
+                                    .watch<CoinPricesProvider>()
+                                    .adaName),
+                          ),
+                        );
+                      },
+                      child: CoinLikeWidget(
+                        iconURL:
+                            "https://cryptologos.cc/logos/cardano-ada-logo.png",
+                        price: context.watch<CoinPricesProvider>().adaPrice,
+                        coinCode: context.watch<CoinPricesProvider>().adaName,
+                      ),
                     ),
-                    CoinLikeWidget(
-                      iconURL: "https://cryptologos.cc/logos/xrp-xrp-logo.png",
-                      price: context.watch<CoinPricesProvider>().xrpPrice,
-                      coinCode: context.watch<CoinPricesProvider>().xrpName,
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreInfoCoinPage(
+                                price: context
+                                    .watch<CoinPricesProvider>()
+                                    .xrpPrice,
+                                coinInfo: CoinText.XRP,
+                                coinCode: context
+                                    .watch<CoinPricesProvider>()
+                                    .xrpName),
+                          ),
+                        );
+                      },
+                      child: CoinLikeWidget(
+                        iconURL:
+                            "https://cryptologos.cc/logos/xrp-xrp-logo.png",
+                        price: context.watch<CoinPricesProvider>().xrpPrice,
+                        coinCode: context.watch<CoinPricesProvider>().xrpName,
+                      ),
                     ),
                   ],
                 ),

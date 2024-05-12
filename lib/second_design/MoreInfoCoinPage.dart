@@ -222,7 +222,7 @@ class _MoreInfoCoinPageState extends State<MoreInfoCoinPage> {
               ),
               SizedBox(height: 4),
               Text(
-                "${widget.coinInfo.substring(0, 220)}...",
+                "${widget.coinInfo.substring(0, 210)}...",
                 style: TextStyle(
                     color: Colors.white.withOpacity(0.80),
                     fontSize: 16,

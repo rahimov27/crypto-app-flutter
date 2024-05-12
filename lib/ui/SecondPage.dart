@@ -100,7 +100,7 @@ class SecondPage extends StatelessWidget {
               SizedBox(height: 20),
               TopCoinsWidget(),
               SizedBox(height: 20),
-              NewsWidget(),
+              // NewsWidget(),
             ],
           ),
         ),
