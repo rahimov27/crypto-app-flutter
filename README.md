@@ -2,8 +2,7 @@
 
 
 
-Assets page
-<img width="296" alt="Снимок экрана 2024-05-12 в 21 41 16" src="https://github.com/rahimov27/crypto-app-flutter/assets/89564054/04175d38-dde7-49f0-9184-6a8f90eb3c77">
+Assets page - <img width="296" alt="Снимок экрана 2024-05-12 в 21 41 16" src="https://github.com/rahimov27/crypto-app-flutter/assets/89564054/04175d38-dde7-49f0-9184-6a8f90eb3c77">
 
 Borwser screen
 <img width="297" alt="Снимок экрана 2024-05-12 в 21 41 30" src="https://github.com/rahimov27/crypto-app-flutter/assets/89564054/6b92b867-c159-4511-81eb-6021f5b8a121">
