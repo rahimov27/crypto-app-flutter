@@ -1,7 +1,8 @@
 # crypto_project
 
 
-Sparkline chart with websocket prices - <img width="305" alt="image" src="https://github.com/rahimov27/crypto-app-flutter/assets/89564054/02decd2a-7f10-46e5-883e-6a0791c215e4"> it's updated each seconds in real time
+Sparkline chart with websocket prices ,it's updated each seconds in real time 
+<img width="305" alt="image" src="https://github.com/rahimov27/crypto-app-flutter/assets/89564054/02decd2a-7f10-46e5-883e-6a0791c215e4"> i
 
 
 Assets page - <img width="296" alt="Снимок экрана 2024-05-12 в 21 41 16" src="https://github.com/rahimov27/crypto-app-flutter/assets/89564054/04175d38-dde7-49f0-9184-6a8f90eb3c77">
