@@ -2,11 +2,16 @@ import 'package:crypto_project/providers/coin_prices_provider.dart';
 import 'package:crypto_project/providers/news_provider.dart';
 import 'package:crypto_project/second_design/FirstPages/SplashScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 }
 
 class MyApp extends StatelessWidget {
